@@ -1,0 +1,62 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.engflow.com/re/config/authentication.html
+docs: https://docs.engflow.com/re/config/authentication.html
+summary:
+  types: [mutualTLS, http-bearer, oauth2, openIdConnect, saml, http-basic, scim]
+  transport: [grpc, http]
+  api_key_in: []
+  oauth2_flows: [deviceCode, authorizationCode, implicit, hybrid]
+schemes:
+- name: mTLS
+  type: mutualTLS
+  transport: [grpc, http]
+  description: >-
+    Clients present X.509 client certificates; the CA trusted to authenticate
+    clients is set via --tls_trusted_certificate. Authorization derives from the
+    certificate Subject Alternative Names or Common Name.
+- name: JWT Bearer Token
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  transport: [grpc, http]
+  header: 'Authorization: Bearer <token>'
+  description: >-
+    The cluster issues and validates its own JWTs. Tokens are minted manually in
+    the web UI (--experimental_jwt_auth) or via the engflow_auth credential
+    helper using an OAuth2 device flow.
+- name: OIDC Federation
+  type: openIdConnect
+  transport: [grpc, http]
+  config: [--oidc_issuers, --oidc_role_mapping, --oidc_config]
+  description: >-
+    External identity providers issue tokens the cluster federates. HTTP login
+    supports Authorization Code, Implicit, and Hybrid flows.
+- name: SAML Login
+  type: saml
+  transport: [http]
+  config: [--saml_config]
+  description: Enterprise SSO via SAML for browser/HTTP access.
+- name: GitHub Token
+  type: http
+  scheme: bearer
+  transport: [grpc, http]
+  header: 'Authorization: Bearer $GITHUB_TOKEN'
+  deprecated: true
+  description: >-
+    GitHub Personal Access Tokens or the GitHub Actions GITHUB_TOKEN (deprecated
+    auth path).
+- name: Basic Auth
+  type: http
+  scheme: basic
+  transport: [http]
+  config: [--basic_auth_htpasswd]
+  description: htpasswd file in APR1 format referenced via --basic_auth_htpasswd.
+- name: SCIM 2.0 Provisioning
+  type: http
+  scheme: bearer
+  transport: [http]
+  endpoint: /api/scim/v2/
+  description: >-
+    Clusters expose SCIM 2.0 provisioning at /api/scim/v2/ for identity-provider
+    user/group provisioning, secured with an OAuth bearer token.
