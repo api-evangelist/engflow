@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.engflow.com
+notes: >-
+  EngFlow implements the open Remote Execution API (REAPI v2) and Remote Asset
+  API over gRPC, and publishes its own service interfaces as Protocol Buffers.
+  Identity provisioning uses SCIM 2.0; SSO uses OIDC and SAML.
+standards:
+- id: remote-execution-api-v2
+  conforms: true
+  evidence: >-
+    EngFlow Remote Execution Service implements the Bazel Remote Execution API v2
+    (build.bazel.remote.execution.v2) over gRPC.
+- id: remote-asset-api
+  conforms: true
+  evidence: Remote Asset API documented under Bazel configuration.
+- id: grpc
+  conforms: true
+  evidence: All EngFlow cluster services are gRPC/Protocol Buffers (engflowapis repo).
+- id: protobuf
+  conforms: true
+  evidence: Public Protocol Buffer interface definitions in EngFlow/engflowapis.
+- id: scim-2.0
+  conforms: true
+  evidence: Clusters expose SCIM 2.0 provisioning at /api/scim/v2/.
+- id: oidc
+  conforms: true
+  evidence: OIDC federation and OIDC login (Authorization Code/Implicit/Hybrid) supported.
+- id: saml-2.0
+  conforms: true
+  evidence: Enterprise SAML SSO via --saml_config.
+- id: oauth2
+  conforms: true
+  evidence: engflow_auth uses OAuth2 device flow; SCIM secured with OAuth bearer tokens.
+- id: mutual-tls
+  conforms: true
+  evidence: X.509 mTLS client authentication for gRPC and HTTP.
+- id: soc2
+  conforms: true
+  evidence: SOC 2 compliance stated in EngFlow documentation.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: gRPC status codes used; no RFC 9457 problem+json (not a REST API).

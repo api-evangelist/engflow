@@ -1,8 +1,31 @@
 aid: engflow
-name: Engflow
-description: Engflow is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+name: EngFlow
+description: >-
+  EngFlow provides remote build execution, remote caching, CI runners, and a
+  Build & Test UI that accelerate large-scale software builds for Bazel,
+  BuildStream, Goma, Pants, Soong, CMake, and Buck2. EngFlow clusters expose a
+  gRPC / Protocol Buffers API surface — the open Remote Execution API (REAPI v2)
+  and Remote Asset API, plus EngFlow's own cluster, IAM, authentication, event
+  store, result store, secret, notification, and resource-usage services, all
+  published as Protocol Buffer interface definitions in the EngFlow/engflowapis
+  repository. Clusters authenticate via mTLS, cluster-issued JWT bearer tokens,
+  OIDC federation, SAML, GitHub tokens, and basic auth, and provision users over
+  SCIM 2.0. EngFlow was founded by former Google/Bazel engineers and is backed by
+  a16z.
 url: https://raw.githubusercontent.com/api-evangelist/engflow/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/61729484?v=4
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,12 +34,118 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Remote Execution
+- Remote Caching
+- Build Systems
+- Bazel
+- CI/CD
+- Developer Tools
+- gRPC
+- Protocol Buffers
+- DevOps
+- Continuous Integration
+apis:
+- name: EngFlow Cluster API (gRPC)
+  description: >-
+    The EngFlow cluster gRPC / Protocol Buffers API surface — cluster info, IAM
+    (roles/policies/users/groups), authentication, event store and result store
+    build-event streaming, secret management, and notifications — as published in
+    the EngFlow/engflowapis interface-definition repository, alongside the open
+    Remote Execution API (REAPI v2) and Remote Asset API that EngFlow implements.
+  humanURL: https://docs.engflow.com/re/index.html
+  baseURL: https://docs.engflow.com
+  x-transport: grpc
+  x-note: >-
+    EngFlow clusters are customer-hosted; the gRPC endpoint is per-cluster
+    (grpcs://<cluster-host>). No single public base URL exists — humanURL/baseURL
+    point at the public developer docs host.
+  properties:
+  - type: Protobuf
+    name: Cluster service (proto)
+    url: grpc/engflow-cluster.proto
+  - type: Protobuf
+    name: Identity and Access Management service (proto)
+    url: grpc/engflow-identity_and_access_management.proto
+  - type: Protobuf
+    name: Authentication service (proto)
+    url: grpc/engflow-authentication.proto
+  - type: Protobuf
+    name: Event Store service (proto)
+    url: grpc/engflow-eventstore.proto
+  - type: Protobuf
+    name: Result Store service (proto)
+    url: grpc/engflow-resultstore.proto
+  - type: Protobuf
+    name: Secret service (proto)
+    url: grpc/engflow-secret.proto
+  - type: Protobuf
+    name: Notification service (proto)
+    url: grpc/engflow-notification.proto
+common:
+- type: DomainSecurity
+  url: security/engflow-domain-security.yml
+- type: Website
+  url: https://www.engflow.com
+- type: DeveloperPortal
+  url: https://docs.engflow.com
+- type: Documentation
+  url: https://docs.engflow.com
+- type: APIReference
+  url: https://github.com/EngFlow/engflowapis
+- type: GettingStarted
+  url: https://docs.engflow.com/re/index.html
+- type: Blog
+  url: https://blog.engflow.com
+- type: GitHubOrganization
+  url: https://github.com/EngFlow
+- type: Pricing
+  url: https://www.engflow.com/product/pricing
+- type: SignUp
+  url: https://www.engflow.com/contact
+- type: Support
+  url: https://www.engflow.com/contact
+- type: TermsOfService
+  url: https://www.engflow.com/terms
+- type: PrivacyPolicy
+  url: https://www.engflow.com/privacy
+- type: SourceCode
+  url: https://github.com/EngFlow/engflowapis
+- type: Packages
+  url: packages/engflow-packages.yml
+- type: SDKs
+  url: packages/engflow-packages.yml
+- type: CLI
+  url: cli/engflow-cli.yml
+- type: Authentication
+  url: authentication/engflow-authentication.yml
+- type: Conformance
+  url: conformance/engflow-conformance.yml
+- type: Compliance
+  url: https://docs.engflow.com
+- type: Conventions
+  url: conventions/engflow-conventions.yml
+- type: Lifecycle
+  url: lifecycle/engflow-lifecycle.yml
+- type: DataModel
+  url: data-model/engflow-data-model.yml
+- type: MCPServer
+  url: mcp/engflow-mcp.yml
+- type: WellKnown
+  url: well-known/engflow-well-known.yml
+- type: LLMsTxt
+  url: llms/engflow-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

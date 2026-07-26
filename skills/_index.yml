@@ -1,0 +1,15 @@
+generated: '2026-07-19'
+method: generated
+source: grpc/*.proto (EngFlow/engflowapis)
+notes: >-
+  Agent Skills generated from EngFlow's published gRPC service interfaces. Every
+  step is grounded in a real RPC verified in the referenced .proto file.
+skills:
+- file: engflow-manage-iam-roles.md
+  name: Manage EngFlow IAM roles
+  api: grpc/engflow-identity_and_access_management.proto
+  operations: [ListRoles, GetRole, CreateRole, UpdateRole, DeleteRole]
+- file: engflow-stream-build-events.md
+  name: Stream EngFlow build and invocation events
+  api: grpc/engflow-eventstore.proto
+  operations: [GetBuild, GetInvocation, GetInvocation]

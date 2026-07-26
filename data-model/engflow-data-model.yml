@@ -1,0 +1,61 @@
+generated: '2026-07-19'
+method: derived
+source: grpc/*.proto (EngFlow/engflowapis)
+notes: >-
+  Entity graph derived from EngFlow's published Protocol Buffer service
+  interfaces. gRPC services and their primary resources, with the RPC surface per
+  service.
+services:
+- service: Cluster
+  package: engflow.cluster.v1
+  proto: grpc/engflow-cluster.proto
+  operations: [GetInfo]
+- service: IdentityAndAccessManagement
+  package: engflow.iam.v1
+  proto: grpc/engflow-identity_and_access_management.proto
+  operations: [GetRole, CreateRole, DeleteRole, UpdateRole, ListRoles]
+  entities: [Role, Policy, User, Group, Session]
+- service: Authentication
+  package: engflow.iam.authentication.v1
+  proto: grpc/engflow-authentication.proto
+  operations: [Authenticate]
+- service: EventStore
+  package: engflow.eventstore.v1
+  proto: grpc/engflow-eventstore.proto
+  operations: [GetBuild, GetInvocation]
+  entities: [Build, Invocation, BuildEvent]
+- service: ResultStore
+  package: engflow.resultstore.v1
+  proto: grpc/engflow-resultstore.proto
+  operations: [GetInvocation]
+  entities: [Invocation, Environment]
+- service: Secret
+  package: engflow.secret.v1
+  proto: grpc/engflow-secret.proto
+  operations: [List, Get, Set, Delete]
+  entities: [Secret, UserSecret]
+- service: Notification
+  package: engflow.notification.v1
+  proto: grpc/engflow-notification.proto
+  entities: [Notification, NotificationQueue]
+relationships:
+- from: Role
+  to: Policy
+  kind: has_many
+  via: policy
+- from: User
+  to: Group
+  kind: has_many
+  via: group
+- from: Invocation
+  to: BuildEvent
+  kind: has_many
+  via: build_event
+- from: Build
+  to: Invocation
+  kind: has_many
+  via: invocation
+shared_types:
+  package: engflow.type
+  proto_dir: engflow/type
+  types: [CompactDigest, HostAndPort, KeyValuePair, TimeInterval, Version]

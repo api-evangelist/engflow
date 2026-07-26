@@ -1,0 +1,52 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: grpc/*.proto (EngFlow/engflowapis)
+notes: >-
+  No official/hosted EngFlow MCP server was found (checked docs, npm
+  @modelcontextprotocol, MCP registries 2026-07-19). This is a DERIVED candidate
+  tool list mapped one-to-one from the published gRPC RPCs, for a future MCP
+  wrapper over an EngFlow cluster.
+server:
+  name: engflow
+  transport: stdio
+tools:
+- name: get_cluster_info
+  description: Return EngFlow cluster info.
+  source_operation: grpc/engflow-cluster.proto#Cluster.GetInfo
+- name: list_roles
+  description: List IAM roles in the cluster.
+  source_operation: grpc/engflow-identity_and_access_management.proto#IdentityAndAccessManagement.ListRoles
+- name: get_role
+  description: Get a single IAM role.
+  source_operation: grpc/engflow-identity_and_access_management.proto#IdentityAndAccessManagement.GetRole
+- name: create_role
+  description: Create an IAM role.
+  source_operation: grpc/engflow-identity_and_access_management.proto#IdentityAndAccessManagement.CreateRole
+- name: update_role
+  description: Update an IAM role.
+  source_operation: grpc/engflow-identity_and_access_management.proto#IdentityAndAccessManagement.UpdateRole
+- name: delete_role
+  description: Delete an IAM role.
+  source_operation: grpc/engflow-identity_and_access_management.proto#IdentityAndAccessManagement.DeleteRole
+- name: get_build_events
+  description: Stream build events for a build.
+  source_operation: grpc/engflow-eventstore.proto#EventStore.GetBuild
+- name: get_invocation_events
+  description: Stream build events for an invocation.
+  source_operation: grpc/engflow-eventstore.proto#EventStore.GetInvocation
+- name: get_result_invocation
+  description: Stream a stored invocation from the result store.
+  source_operation: grpc/engflow-resultstore.proto#ResultStore.GetInvocation
+- name: list_secrets
+  description: List cluster secrets.
+  source_operation: grpc/engflow-secret.proto#Secret.List
+- name: get_secret
+  description: Get a cluster secret.
+  source_operation: grpc/engflow-secret.proto#Secret.Get
+- name: set_secret
+  description: Create or update a cluster secret.
+  source_operation: grpc/engflow-secret.proto#Secret.Set
+- name: delete_secret
+  description: Delete a cluster secret.
+  source_operation: grpc/engflow-secret.proto#Secret.Delete

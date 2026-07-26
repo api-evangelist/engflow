@@ -1,0 +1,37 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/EngFlow
+notes: >-
+  EngFlow's client surface is Bazel + the open Remote Execution API; there is no
+  conventional REST SDK. First-party, officially-published Go modules from the
+  EngFlow GitHub org are catalogued here. The Protocol Buffer interface
+  definitions (engflowapis) ship generated Go bindings under the /go module path.
+  No first-party packages were found on npm, PyPI, Maven Central, NuGet,
+  RubyGems, Packagist, or crates.io (probed 2026-07-19).
+packages:
+- language: go
+  registry: pkg.go.dev
+  name: github.com/EngFlow/engflowapis/go
+  url: https://pkg.go.dev/github.com/EngFlow/engflowapis
+  install: go get github.com/EngFlow/engflowapis/go
+  official: true
+  description: >-
+    Generated Go bindings for EngFlow's Protocol Buffer API interface
+    definitions (cluster, iam, authentication, eventstore, resultstore, secret,
+    notification, resourceusage services).
+- language: go
+  registry: pkg.go.dev
+  name: github.com/EngFlow/auth
+  url: https://pkg.go.dev/github.com/EngFlow/auth
+  install: go install github.com/EngFlow/auth/cmd/engflow_auth@latest
+  official: true
+  description: >-
+    Open-source engflow_auth CLI / Bazel credential helper for authenticating to
+    EngFlow RBE clusters.
+- language: go
+  registry: pkg.go.dev
+  name: github.com/EngFlow/credential-helper-go
+  url: https://pkg.go.dev/github.com/EngFlow/credential-helper-go
+  install: go get github.com/EngFlow/credential-helper-go
+  official: true
+  description: Go library for building Bazel credential helpers.

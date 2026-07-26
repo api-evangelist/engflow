@@ -1,0 +1,33 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/EngFlow/auth
+name: engflow_auth
+description: >-
+  engflow_auth is EngFlow's open-source Bazel credential helper CLI. It obtains
+  and securely stores EngFlow authentication credentials (in the system keyring,
+  or files in CI) so Bazel and other REAPI clients can authenticate to an EngFlow
+  RBE cluster without manually managing TLS certificates or Authorization
+  headers. Configured in .bazelrc via --credential_helper.
+repository: https://github.com/EngFlow/auth
+install:
+- method: go
+  command: go install github.com/EngFlow/auth/cmd/engflow_auth@latest
+- method: release-binary
+  command: Download from https://github.com/EngFlow/auth/releases/latest, chmod +x, place on PATH
+- method: bazel
+  command: bazel build //cmd/engflow_auth
+commands:
+- name: login
+  summary: Authenticate with a cluster URL via the browser and store credentials.
+- name: export
+  summary: Output stored credentials to stdout.
+- name: import
+  summary: Retrieve/store credentials from stdin.
+- name: logout
+  summary: Remove stored credentials for a cluster.
+flows:
+- name: Bazel credential helper
+  summary: >-
+    Configure `--credential_helper=<cluster-host>=%workspace%/tools/engflow_auth`
+    in .bazelrc so Bazel automatically attaches EngFlow cluster credentials to
+    REAPI gRPC calls.

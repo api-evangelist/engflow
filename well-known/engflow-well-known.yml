@@ -1,0 +1,17 @@
+generated: '2026-07-19'
+method: searched
+host: https://www.engflow.com
+notes: >-
+  Probed the public www + docs hosts 2026-07-19. EngFlow clusters are
+  customer-hosted, so OIDC/oauth-authorization-server discovery lives per-cluster,
+  not on the marketing/docs hosts. Nothing published at the public well-known
+  paths — recorded as valid negative results.
+documents:
+- path: https://www.engflow.com/.well-known/security.txt
+  status: 404
+- path: https://docs.engflow.com/.well-known/security.txt
+  status: 404
+- path: https://www.engflow.com/.well-known/openid-configuration
+  status: 404
+- path: https://www.engflow.com/.well-known/api-catalog
+  status: 404

@@ -1,0 +1,42 @@
+generated: '2026-07-19'
+method: derived
+source: grpc/*.proto (EngFlow/engflowapis), https://docs.engflow.com
+notes: >-
+  Cross-cutting semantics for EngFlow's gRPC cluster API, derived from the
+  published Protocol Buffer interface definitions and the RE service docs.
+transport:
+  protocol: grpc
+  encoding: protobuf
+  tls: required
+authentication:
+  ref: authentication/engflow-authentication.yml
+  styles: [mTLS, JWT bearer, OIDC, SAML, GitHub token, basic]
+streaming:
+  style: server-streaming
+  detail: >-
+    Long/large reads are server-streamed rather than paginated — EventStore
+    (GetBuild, GetInvocation) and ResultStore (GetInvocation) return
+    `stream Streamed...` responses; IAM ListRoles streams results.
+pagination:
+  style: none-observed
+  detail: >-
+    No page_token/page_size fields observed in the published protos; list-style
+    reads use server streaming instead of cursor/offset pagination.
+idempotency:
+  supported: false
+  detail: >-
+    No idempotency-key field/header is documented in the published interfaces.
+error_model:
+  style: grpc-status
+  detail: >-
+    Errors are conveyed as gRPC status codes (google.rpc) rather than an HTTP
+    problem+json envelope.
+versioning:
+  scheme: proto-package
+  detail: >-
+    Service versions are encoded in the proto package (e.g. engflow.iam.v1,
+    engflow.cluster.v1, engflow.ci.v1alpha). Maturity is annotated via
+    engflow/api/launch_stage.proto (launch stages).
+  ref: lifecycle/engflow-lifecycle.yml
+identity_provisioning:
+  scim: /api/scim/v2/

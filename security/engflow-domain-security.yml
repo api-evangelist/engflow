@@ -1,0 +1,27 @@
+generated: '2026-07-19'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.engflow.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 16 05:56:19 2026 GMT
+  hsts: null
+- host: docs.engflow.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 28 04:28:34 2026 GMT
+  hsts: false
+domains:
+- domain: engflow.com
+  dnssec: false
+  caa:
+  - 0 issue "awstrust.com"
+  - 0 issue "amazontrust.com"
+  - 0 iodef "mailto:caa-admin@engflow.com"
+  - 0 issue "amazon.com"
+  - 0 issue "letsencrypt.org"
+  - 0 issue "amazonaws.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

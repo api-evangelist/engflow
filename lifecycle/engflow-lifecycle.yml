@@ -1,0 +1,25 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/EngFlow/engflowapis
+notes: >-
+  Lifecycle derived from EngFlow's published Protocol Buffer interface
+  definitions and public GitHub surface. EngFlow clusters are customer-hosted, so
+  there is no single public multi-tenant status page (status.engflow.com did not
+  resolve on probe 2026-07-19).
+versioning:
+  scheme: proto-package-version
+  current: v1
+  stages: [v1, v1alpha]
+  launch_stage_annotation: grpc/engflow-launch_stage.proto (engflow/api/launch_stage.proto)
+  docs: https://github.com/EngFlow/engflowapis
+deprecation:
+  policy_url: null
+  sunset_header: false
+  observed:
+  - GitHub-token bearer authentication is documented as deprecated.
+releases:
+  url: https://github.com/EngFlow/engflowapis/releases
+status_page: null
+sla:
+  url: null
+deprecated_operations: []
