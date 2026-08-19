@@ -2,11 +2,9 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: grpc/*.proto (EngFlow/engflowapis)
-notes: >-
-  No official/hosted EngFlow MCP server was found (checked docs, npm
-  @modelcontextprotocol, MCP registries 2026-07-19). This is a DERIVED candidate
-  tool list mapped one-to-one from the published gRPC RPCs, for a future MCP
-  wrapper over an EngFlow cluster.
+notes: No official/hosted EngFlow MCP server was found (checked docs, npm @modelcontextprotocol, MCP registries
+  2026-07-19). This is a DERIVED candidate tool list mapped one-to-one from the published gRPC RPCs, for
+  a future MCP wrapper over an EngFlow cluster.
 server:
   name: engflow
   transport: stdio
@@ -50,3 +48,9 @@ tools:
 - name: delete_secret
   description: Delete a cluster secret.
   source_operation: grpc/engflow-secret.proto#Secret.Delete
+deployment:
+  mode: none
+  verified: derived
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
