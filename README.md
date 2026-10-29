@@ -1,4 +1,4 @@
-# Engflow
+# EngFlow
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,6 +64,103 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Engflow is a company surfaced as a portfolio company of a16z and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+EngFlow provides remote build execution, remote caching, CI runners, and a Build & Test UI that accelerate large-scale software builds for Bazel, BuildStream, Goma, Pants, Soong, CMake, and Buck2. EngFlow clusters expose a gRPC / Protocol Buffers API surface — the open Remote Execution API (REAPI v2) and Remote Asset API, plus EngFlow's own cluster, IAM, authentication, event store, result store, secret, notification, and resource-usage services, all published as Protocol Buffer interface definitions in the EngFlow/engflowapis repository. Clusters authenticate via mTLS, cluster-issued JWT bearer tokens, OIDC federation, SAML, GitHub tokens, and basic auth, and provision users over SCIM 2.0. EngFlow was founded by former Google/Bazel engineers and is backed by a16z.
 
-Backed by: a16z
+**Areas:** Company · Remote Execution · Remote Caching · Build Systems · Bazel · CI/CD · Developer Tools · gRPC · Protocol Buffers · DevOps · Continuous Integration
+
+## EngFlow on APIs.io
+
+Everything profiled for EngFlow is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/engflow/](https://apis.io/providers/engflow/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [EngFlow Cluster API (gRPC)](https://apis.io/apis/engflow/engflow-cluster-api-grpc/) — The EngFlow cluster gRPC / Protocol Buffers API surface — cluster info, IAM (roles/policies/users/groups), authentication, event store and result store…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [engflow](https://apis.io/servers/engflow/engflow/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Engflow Authentication](https://apis.io/security/engflow/engflow-authentication/)
+- [Engflow Domain Security](https://apis.io/security/engflow/engflow-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.engflow.com)
+- [Documentation](https://docs.engflow.com)
+- [Getting started](https://docs.engflow.com/re/index.html)
+- [API reference](https://github.com/EngFlow/engflowapis)
+- [Pricing](https://www.engflow.com/product/pricing)
+- [Sign up](https://www.engflow.com/contact)
+- [Support](https://www.engflow.com/contact)
+- [Blog](https://blog.engflow.com)
+- [Compliance](https://docs.engflow.com)
+- [Terms of service](https://www.engflow.com/terms)
+- [Privacy policy](https://www.engflow.com/privacy)
+- [GitHub](https://github.com/EngFlow)
+
+## API Evangelist rating
+
+**Kin Score 43.4** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 24.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 73.2 |
+| Access clarity | 52.6 |
+
+**Agent readiness 16.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/engflow/](https://apis.io/providers/engflow/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for EngFlow: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/engflow/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
